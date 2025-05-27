@@ -1,7 +1,7 @@
 {
   "name": "smo-interactive-cost-analysis",
   "version": "1.0.0",
-  "description": "An interactive web application for analyzing Submucosal Only (SMO) surgical costs with comprehensive input parameters and detailed cost breakdowns.",
+  "description": "An interactive web application for analyzing Spinning Mill Organization (SMO) costs with comprehensive input parameters and detailed cost breakdowns.",
   "main": "index.html",
   "scripts": {
     "start": "python -m http.server 8000 || python3 -m http.server 8000",
@@ -9,14 +9,14 @@
     "dev": "npx live-server --port=8000 --entry-file=index.html"
   },
   "keywords": [
-    "medical",
+    "textile",
+    "spinning-mill",
     "cost-analysis",
-    "surgical-costs",
-    "healthcare",
+    "smo",
+    "manufacturing",
     "interactive",
     "web-application",
-    "smo",
-    "submucosal-only"
+    "yarn-production"
   ],
   "author": {
     "name": "Ziad Elnagar",
