@@ -29,13 +29,13 @@
     }
   ],
   "license": "MIT",
-  "homepage": "https://github.com/YOUR_USERNAME/smo-interactive-cost-analysis",
+  "homepage": "https://github.com/ZiadNagar/smo-interactive-cost-analysis",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/smo-interactive-cost-analysis.git"
+    "url": "https://github.com/ZiadNagar/smo-interactive-cost-analysis.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/smo-interactive-cost-analysis/issues"
+    "url": "https://github.com/ZiadNagar/smo-interactive-cost-analysis/issues"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
