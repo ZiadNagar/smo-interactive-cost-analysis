@@ -538,14 +538,22 @@ function updateCostAnalysisUI(calculatedData) {
 
 // Event listeners and initialization
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM loaded, populating table...");
+
   // Populate the table with default data
   populateDataTable(defaultRawJsonData);
+
+  console.log("Table populated with default data");
 
   // Event listener for the generate analysis button
   document
     .getElementById("generateAnalysisBtn")
     .addEventListener("click", function () {
+      console.log("Generate button clicked");
+
       const inputData = readDataFromTable();
+
+      console.log("Input data read:", inputData);
 
       // Validate that we have data
       if (Object.keys(inputData).length === 0) {
