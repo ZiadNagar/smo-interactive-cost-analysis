@@ -39,7 +39,7 @@ A modern, interactive web application for analyzing spinning mill costs with rea
 
 ## 🚀 Demo
 
-[**Live Demo**](https://your-username.github.io/smo-interactive-cost-analysis) _(Will be available after GitHub Pages setup)_
+[**Live Demo**](https://ZiadNagar.github.io/smo-interactive-cost-analysis) _(Will be available after GitHub Pages setup)_
 
 ## 📋 Prerequisites
 
