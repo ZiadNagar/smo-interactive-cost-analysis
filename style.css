@@ -74,6 +74,21 @@ input::placeholder {
   background-color: #f9fafb;
 }
 
+/* Table container styling */
+.table-container {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide table on mobile, show cards instead */
+@media (max-width: 767px) {
+  .table-container {
+    display: none !important;
+  }
+}
+
 /* Mobile Card Styling */
 .input-card {
   background: white;
