@@ -96,94 +96,38 @@ function populateDataTable(data) {
       const valueType = typeof data[key].value === "number" ? "number" : "text";
       const placeholderValue = `e.g., ${data[key].value}`;
 
-      // Create table row for desktop (xl and above)
+      // Create table row for desktop
       if (tableBody) {
         const row = document.createElement("tr");
-        row.className =
-          "border-b border-slate-100 last:border-b-0 hover:bg-slate-50/50 transition-colors duration-200";
+        row.className = "hover:bg-gray-50 transition-colors duration-200";
         row.dataset.param = key;
         row.dataset.unit = data[key].unit;
 
         row.innerHTML = `
-          <td class="py-4 px-6 text-sm font-medium text-slate-700">${key}</td>
-          <td class="py-4 px-6">
+          <td class="px-6 py-4 text-sm font-medium text-gray-900">${key}</td>
+          <td class="px-6 py-4">
             <input type="${valueType}" 
                    placeholder="${placeholderValue}" 
-                   class="w-full p-3 border border-slate-300 rounded-xl bg-white focus:border-orange-400 focus:ring-2 focus:ring-orange-100 text-slate-700 transition-all duration-200 hover:border-slate-400 placeholder-slate-400"
+                   class="w-full"
                    data-default="${data[key].value}">
           </td>
-          <td class="py-4 px-6 text-sm text-slate-500 font-medium">${data[key].unit}</td>
+          <td class="px-6 py-4 text-sm text-gray-500 font-medium">${data[key].unit}</td>
         `;
         tableBody.appendChild(row);
       }
 
-      // Create card for mobile/responsive layout (below xl)
+      // Create card for mobile layout
       if (inputCardsContainer) {
         const card = document.createElement("div");
-        card.className =
-          "bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 xl:hidden";
+        card.className = "input-card";
         card.dataset.param = key;
         card.dataset.unit = data[key].unit;
 
-        // Get icon based on parameter type
-        const getParameterIcon = (paramName) => {
-          if (
-            paramName.toLowerCase().includes("yarn") ||
-            paramName.toLowerCase().includes("count")
-          ) {
-            return '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>';
-          } else if (
-            paramName.toLowerCase().includes("production") ||
-            paramName.toLowerCase().includes("working")
-          ) {
-            return '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>';
-          } else if (
-            paramName.toLowerCase().includes("price") ||
-            paramName.toLowerCase().includes("selling") ||
-            paramName.toLowerCase().includes("cost") ||
-            paramName.toLowerCase().includes("wages")
-          ) {
-            return '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>';
-          } else if (
-            paramName.toLowerCase().includes("machine") ||
-            paramName.toLowerCase().includes("depreciation") ||
-            paramName.toLowerCase().includes("maintenance")
-          ) {
-            return '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>';
-          } else if (
-            paramName.toLowerCase().includes("electric") ||
-            paramName.toLowerCase().includes("energy") ||
-            paramName.toLowerCase().includes("light")
-          ) {
-            return '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>';
-          } else if (
-            paramName.toLowerCase().includes("area") ||
-            paramName.toLowerCase().includes("building") ||
-            paramName.toLowerCase().includes("land")
-          ) {
-            return '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>';
-          } else {
-            return '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>';
-          }
-        };
-
         card.innerHTML = `
-          <div class="flex items-start justify-between mb-4">
-            <div class="flex-1">
-              <h3 class="font-semibold text-slate-800 text-lg mb-1 leading-tight">${key}</h3>
-              <p class="text-sm text-orange-600 font-medium">${
-                data[key].unit
-              }</p>
-            </div>
-            <div class="w-12 h-12 bg-gradient-to-r from-orange-400 to-amber-400 rounded-xl flex items-center justify-center ml-4 shadow-lg flex-shrink-0">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                ${getParameterIcon(key)}
-              </svg>
-            </div>
-          </div>
+          <h3>${key}</h3>
+          <p class="unit">${data[key].unit}</p>
           <input type="${valueType}" 
                  placeholder="${placeholderValue}" 
-                 class="w-full p-4 border border-slate-300 rounded-xl bg-white focus:border-orange-400 focus:ring-2 focus:ring-orange-100 text-slate-700 transition-all duration-200 hover:border-slate-400 text-lg placeholder-slate-400"
                  data-default="${data[key].value}">
         `;
         inputCardsContainer.appendChild(card);
@@ -445,35 +389,37 @@ function updateCostAnalysisUI(calculatedData) {
 
   calculatedData.costs.forEach((cost) => {
     const itemDiv = document.createElement("div");
-    itemDiv.className = "border border-stone-200 rounded-lg";
+    itemDiv.className = "cost-detail-item";
 
     const button = document.createElement("button");
-    button.className =
-      "w-full text-left p-4 bg-stone-50 hover:bg-stone-100 rounded-t-lg focus:outline-none flex justify-between items-center";
+    button.className = "cost-detail-button";
+
     // Conditionally apply rounding for the value based on unit
     const displayValue =
       cost.unit === "%" ? cost.value.toFixed(2) : cost.value.toFixed(3);
+
     button.innerHTML = `
-            <span class="font-medium text-stone-700"><span class="details-icon"></span>${cost.name}: ${displayValue} ${cost.unit}</span>
-            <svg class="w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        `;
+      <span>${cost.name}: ${displayValue} ${cost.unit}</span>
+      <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    `;
 
     const detailsDiv = document.createElement("div");
-    detailsDiv.className =
-      "p-4 border-t border-stone-200 bg-white rounded-b-lg hidden";
+    detailsDiv.className = "cost-detail-content";
     detailsDiv.innerHTML = `
-            <h4 class="font-semibold text-md mb-2 text-orange-600">${
-              cost.detailsTitle
-            }</h4>
-            <ul class="list-disc list-inside space-y-1 text-sm text-stone-600">
-                ${cost.details.map((detail) => `<li>${detail}</li>`).join("")}
-            </ul>
-        `;
+      <h4>${cost.detailsTitle}</h4>
+      <ul>
+        ${cost.details.map((detail) => `<li>${detail}</li>`).join("")}
+      </ul>
+    `;
 
     button.addEventListener("click", () => {
-      detailsDiv.classList.toggle("hidden");
-      button.classList.toggle("details-visible");
-      button.querySelector("svg").classList.toggle("rotate-180");
+      const isShowing = detailsDiv.classList.contains("show");
+      detailsDiv.classList.toggle("show", !isShowing);
+      button.querySelector("svg").style.transform = isShowing
+        ? "rotate(0deg)"
+        : "rotate(180deg)";
     });
 
     itemDiv.appendChild(button);
@@ -493,104 +439,132 @@ function updateCostAnalysisUI(calculatedData) {
   if (costChartInstance) {
     costChartInstance.destroy(); // Destroy existing chart instance
   }
+
+  // Filter out the 'Total Expenses' and 'Net Profit' from the chart labels and data
+  const chartData = calculatedData.costs.filter(
+    (cost) =>
+      cost.name !== "Total Expenses" &&
+      cost.name !== "Net Profit or Loss Before Tax"
+  );
+
   costChartInstance = new Chart(ctx, {
     type: "bar",
     data: {
-      // Filter out the 'Total Expenses' and 'Net Profit' from the chart labels and data
-      labels: calculatedData.costs
-        .filter((cost) => cost.unit === "EGP/kg")
-        .map((cost) => cost.name.match(/.{1,16}/g).join("\n")),
+      labels: chartData.map((cost) => cost.name),
       datasets: [
         {
           label: "Cost (EGP/kg)",
-          data: calculatedData.costs
-            .filter((cost) => cost.unit === "EGP/kg")
-            .map((cost) => cost.value),
+          data: chartData.map((cost) => cost.value),
           backgroundColor: [
-            "rgba(255, 99, 132, 0.7)",
-            "rgba(54, 162, 235, 0.7)",
-            "rgba(255, 206, 86, 0.7)",
-            "rgba(75, 192, 192, 0.7)",
-            "rgba(153, 102, 255, 0.7)",
-            "rgba(255, 159, 64, 0.7)",
-            "rgba(100, 159, 100, 0.7)",
+            "#3b82f6",
+            "#ef4444",
+            "#10b981",
+            "#f59e0b",
+            "#8b5cf6",
+            "#ec4899",
+            "#06b6d4",
           ],
           borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)",
-            "rgba(100, 159, 100, 1)",
+            "#2563eb",
+            "#dc2626",
+            "#059669",
+            "#d97706",
+            "#7c3aed",
+            "#db2777",
+            "#0891b2",
           ],
           borderWidth: 1,
+          borderRadius: 6,
+          borderSkipped: false,
         },
       ],
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            text: "Cost (EGP/kg)",
-            font: { size: 14, weight: "bold" },
-          },
-        },
-        x: {
-          ticks: {
-            font: { size: 10 },
-          },
-        },
-      },
       plugins: {
         legend: {
           display: false,
         },
         tooltip: {
+          backgroundColor: "rgba(0, 0, 0, 0.8)",
+          titleColor: "white",
+          bodyColor: "white",
+          borderColor: "#e5e7eb",
+          borderWidth: 1,
+          cornerRadius: 8,
           callbacks: {
             label: function (context) {
-              let label = context.dataset.label || "";
-              if (label) {
-                label += ": ";
-              }
-              if (context.parsed.y !== null) {
-                label += `${context.parsed.y.toFixed(3)} EGP/kg`;
-              }
-              return label;
+              return `${context.parsed.y.toFixed(3)} EGP/kg`;
             },
           },
+        },
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: {
+            color: "#f3f4f6",
+          },
+          ticks: {
+            color: "#6b7280",
+            font: {
+              size: 12,
+            },
+          },
+        },
+        x: {
+          grid: {
+            display: false,
+          },
+          ticks: {
+            color: "#6b7280",
+            font: {
+              size: 12,
+            },
+            maxRotation: 45,
+          },
+        },
+      },
+      layout: {
+        padding: {
+          top: 20,
+          bottom: 20,
         },
       },
     },
   });
 }
 
-// Event listener for the "Generate Analysis" button
-document.getElementById("generateAnalysisBtn").addEventListener("click", () => {
-  const currentInputData = readDataFromTable();
-  const newReportData = calculateReportData(currentInputData);
-  updateCostAnalysisUI(newReportData);
-
-  // Hide the placeholder and show the cost analysis section
-  const placeholderSection = document.getElementById("analysisPlaceholder");
-  const costAnalysisSection = document.getElementById("costAnalysis");
-
-  if (placeholderSection) {
-    placeholderSection.classList.add("hidden");
-  }
-
-  if (costAnalysisSection) {
-    costAnalysisSection.classList.remove("hidden");
-    costAnalysisSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-});
-
-// Initial population of the data table only (no calculation on page load)
-document.addEventListener("DOMContentLoaded", () => {
+// Event listeners and initialization
+document.addEventListener("DOMContentLoaded", function () {
+  // Populate the table with default data
   populateDataTable(defaultRawJsonData);
-  // Do not perform initial calculation - wait for user input
+
+  // Event listener for the generate analysis button
+  document
+    .getElementById("generateAnalysisBtn")
+    .addEventListener("click", function () {
+      const inputData = readDataFromTable();
+
+      // Validate that we have data
+      if (Object.keys(inputData).length === 0) {
+        alert("Please fill in the required data first.");
+        return;
+      }
+
+      reportData = calculateReportData(inputData);
+      updateCostAnalysisUI(reportData);
+
+      // Hide placeholder and show results
+      document.getElementById("analysisPlaceholder").classList.add("hidden");
+      document.getElementById("costAnalysis").classList.remove("hidden");
+      document.getElementById("costAnalysis").classList.add("fade-in");
+
+      // Scroll to results
+      document.getElementById("costAnalysis").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
 });
