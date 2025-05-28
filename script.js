@@ -144,7 +144,7 @@ function calculateReportData(data) {
 
   // 1. Raw Material Cost
   const priceRawMaterial = data["Price of 1 Kg Raw Material"].value;
-  const correctedCottonFactor = data["Corrected Cotton Factor"].value;
+  const correctedCottonFactor = data["Waste Factor"].value;
   const rawMaterialCost = priceRawMaterial * correctedCottonFactor;
 
   // 2. Machinery Cost
@@ -221,11 +221,11 @@ function calculateReportData(data) {
         unit: "EGP/kg",
         detailsTitle: "Calculation: Raw Material Cost",
         details: [
-          "The raw material cost per kg of yarn is calculated by multiplying the price of 1 kg of raw material by the corrected cotton factor, which accounts for waste removed during processing.",
+          "The raw material cost per kg of yarn is calculated by multiplying the price of 1 kg of raw material by the waste factor, which accounts for waste removed during processing.",
           `Price of 1 Kg Raw Material = ${data["Price of 1 Kg Raw Material"].value} EGP`,
-          `Corrected Cotton Factor = ${data["Corrected Cotton Factor"].value}`,
+          `Corrected Cotton Factor = ${data["Waste Factor"].value}`,
           `Calculation: ${data["Price of 1 Kg Raw Material"].value} EGP/kg × ${
-            data["Corrected Cotton Factor"].value
+            data["Waste Factor"].value
           } = <strong>${rawMaterialCost.toFixed(3)} EGP/kg</strong>`,
         ],
       },
