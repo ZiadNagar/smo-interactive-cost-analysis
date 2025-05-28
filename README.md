@@ -73,8 +73,6 @@ smo-interactive-cost-analysis/
 ├── script.js              # JavaScript functionality
 ├── style.css              # Custom CSS styles
 ├── README.md              # Project documentation
-├── LICENSE                # MIT License
-├── CONTRIBUTING.md        # Contribution guidelines
 ├── .gitignore            # Git ignore rules
 ├── package.json          # Project metadata
 └── .github/
