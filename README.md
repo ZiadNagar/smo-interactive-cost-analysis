@@ -41,37 +41,6 @@ A modern, interactive web application for analyzing spinning mill costs with rea
 
 [**Live Demo**](https://ZiadNagar.github.io/smo-interactive-cost-analysis) _(Will be available after GitHub Pages setup)_
 
-## 📋 Prerequisites
-
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Internet connection (for CDN resources)
-
-## 🛠️ Installation
-
-### Quick Start
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/your-username/smo-interactive-cost-analysis.git
-   cd smo-interactive-cost-analysis
-   ```
-
-2. **Open in browser**
-
-   ```bash
-   # Using Python (if installed)
-   python -m http.server 8000
-
-   # Using Node.js (if installed)
-   npx serve .
-
-   # Or simply open index.html in your browser
-   ```
-
-3. **Access the application**
-   - If using a local server: `http://localhost:8000`
-   - If opening directly: Open `index.html` in your browser
 
 ## 📖 Usage Guide
 
@@ -117,25 +86,6 @@ smo-interactive-cost-analysis/
         └── deploy.yml    # GitHub Actions deployment
 ```
 
-## 🛠️ Development
-
-### Local Development
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/smo-interactive-cost-analysis.git
-cd smo-interactive-cost-analysis
-
-# Start local development server
-npm start
-# or
-python -m http.server 8000
-```
-
-### Building for Production
-
-This is a static web application - no build process required. Simply deploy the files to any web server.
-
 ## 🔧 Technologies Used
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
@@ -143,13 +93,6 @@ This is a static web application - no build process required. Simply deploy the 
 - **Charts**: Chart.js (via CDN)
 - **Fonts**: Google Fonts (Inter)
 - **Icons**: Heroicons (via Tailwind)
-
-## 📱 Browser Support
-
-- ✅ Chrome 90+
-- ✅ Firefox 88+
-- ✅ Safari 14+
-- ✅ Edge 90+
 
 ## 🤝 Contributing
 
