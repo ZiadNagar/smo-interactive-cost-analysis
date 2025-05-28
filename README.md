@@ -94,13 +94,6 @@ smo-interactive-cost-analysis/
 
 This application is based on course materials prepared by **Dr. Hasan Abdellatif**, who taught the Spinning Mill Organization Course at the Textile Engineering Department - Alexandria University. His lectures and educational content formed the foundation of this interactive tool.
 
-Special thanks to:
-
-- **Dr. Hasan Abdellatif** - Course instructor and content creator
-- **Alexandria University** - Textile Engineering Department
-- **Chart.js Community** - For the excellent charting library
-- **Tailwind CSS Team** - For the utility-first CSS framework
-
 ## 👨‍💻 Developer
 
 **Ziad Elnagar**
