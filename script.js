@@ -144,8 +144,8 @@ function calculateReportData(data) {
 
   // 1. Raw Material Cost
   const priceRawMaterial = data["Price of 1 Kg Raw Material"].value;
-  const correctedCottonFactor = data["Waste Factor"].value;
-  const rawMaterialCost = priceRawMaterial * correctedCottonFactor;
+  const wasteFactor = data["Waste Factor"].value;
+  const rawMaterialCost = priceRawMaterial * wasteFactor;
 
   // 2. Machinery Cost
   const totalPriceMachines =
