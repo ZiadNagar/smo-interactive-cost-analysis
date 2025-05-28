@@ -126,24 +126,7 @@ Special thanks to:
 **Ziad Elnagar**
 
 - Portfolio: [https://ziadelnagar-portfolio.vercel.app/](https://ziadelnagar-portfolio.vercel.app/)
-- GitHub: [@your-username](https://github.com/your-username)
-
-## 📊 Screenshots
-
-### Main Dashboard
-
-![Dashboard Screenshot](screenshots/dashboard.png)
-_Modern glass morphism design with interactive elements_
-
-### Cost Analysis
-
-![Cost Analysis Screenshot](screenshots/cost-analysis.png)
-_Comprehensive cost breakdown with visual charts_
-
-### Data Input
-
-![Data Input Screenshot](screenshots/data-input.png)
-_User-friendly parameter input interface_
+- GitHub: [@your-username](https://github.com/ZiadNagar)
 
 ---
 
