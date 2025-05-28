@@ -223,7 +223,7 @@ function calculateReportData(data) {
         details: [
           "The raw material cost per kg of yarn is calculated by multiplying the price of 1 kg of raw material by the waste factor, which accounts for waste removed during processing.",
           `Price of 1 Kg Raw Material = ${data["Price of 1 Kg Raw Material"].value} EGP`,
-          `Corrected Cotton Factor = ${data["Waste Factor"].value}`,
+          `Waste Factor = ${data["Waste Factor"].value}`,
           `Calculation: ${data["Price of 1 Kg Raw Material"].value} EGP/kg × ${
             data["Waste Factor"].value
           } = <strong>${rawMaterialCost.toFixed(3)} EGP/kg</strong>`,
