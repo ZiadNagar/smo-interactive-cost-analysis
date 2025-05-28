@@ -23,24 +23,20 @@ A modern, interactive web application for analyzing spinning mill costs with rea
 - **Cost Breakdown Pie Chart**: Visual representation of expense distribution
 - **Responsive Design**: Charts adapt to all screen sizes
 
-### 💻 Modern UI/UX
-
-- **Glass Morphism Design**: Modern backdrop-blur effects and translucent elements
-- **Tailwind CSS Styling**: Clean, responsive, and professional interface
-- **Animated Elements**: Smooth transitions and hover effects
-- **Mobile-First**: Fully responsive design for all devices
-
 ### 🔧 Technical Features
 
 - **No Backend Required**: Pure client-side application
 - **Fast Loading**: Optimized assets and efficient code
-- **Accessible**: WCAG compliant design patterns
 - **Cross-Browser**: Compatible with all modern browsers
 
 ## 🚀 Demo
 
 [**Live Demo**](https://ZiadNagar.github.io/smo-interactive-cost-analysis) _(Will be available after GitHub Pages setup)_
 
+## 📋 Prerequisites
+
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Internet connection (for CDN resources)
 
 ## 📖 Usage Guide
 
@@ -93,22 +89,6 @@ smo-interactive-cost-analysis/
 - **Charts**: Chart.js (via CDN)
 - **Fonts**: Google Fonts (Inter)
 - **Icons**: Heroicons (via Tailwind)
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-### Quick Contribution Steps
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
